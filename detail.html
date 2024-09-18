@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film/Dizi Detayları</title>
+    <link rel="stylesheet" href="detail.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+
+            <h1><img src="./assets/image/blutv-icon.svg" alt="head" width="70%"></h1>
+
+
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+
+        <div class="content-section">
+            <div class="detail-content">
+                <div class="detail-content">
+                    <div class="movie-image">
+
+                    </div>
+
+                    <div class="movie-info">
+                       
+
+
+                        <p><strong>Genre:</strong> <span id="show-genre"></span></p>
+                        <p><strong>Language:</strong> <span id="show-language"></span></p>
+                        <p><strong>Status:</strong> <span id="show-status"></span></p>
+                        <p><strong>Premiered:</strong> <span id="show-premiered"></span></p>
+                        <p><strong>Ended:</strong> <span id="show-ended"></span></p>
+                        <p><strong>Rating:</strong> <span id="show-rating"></span></p>
+
+                        <p><strong>IMDb:</strong> <a id="show-imdb" href="#" target="_blank">Link to IMDb</a></p>
+                    </div>
+                </div>
+                <img class="movie-image" id="movie-image" alt="Movie image">
+                <div class="movie-info">
+                    <h3 id="movie-title">Film/Dizi Başlığı</h3>
+                    <p id="movie-summary" class="collapsed">Film veya dizi hakkında özet bilgi burada yer alacak.</p>
+                    <button id="show-more-btn" style="display: none;" class="watch-button">Daha Fazla Göster</button>
+
+                    <button class="watch-button">İzle</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer>
+            <p>&copy; 2024 BluTV. All rights reserved.</p>
+        </footer>
+    </div>
+
+
+
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+        const showId = params.get('id');
+
+
+        fetch(`https://api.tvmaze.com/shows/${showId}`)
+            .then(response => response.json())
+            .then(show => {
+                document.getElementById('movie-title').textContent = show.name;
+                document.getElementById('movie-summary').innerHTML = show.summary;
+                document.getElementById('movie-image').src = show.image ? show.image.medium : './assets/image/default.jpg';
+                document.getElementById('show-language').innerHTML = show.language;
+                document.getElementById('show-genre').innerHTML = show.genres;
+                document.getElementById('show-status').innerHTML = show.status;
+                document.getElementById('show-premiered').innerHTML = show.premiered;
+                document.getElementById('show-ended').innerHTML = show.ended;
+                document.getElementById('show-rating').innerHTML = show.rating.average;
+
+
+                const summary = document.getElementById('movie-summary');
+                if (summary.innerHTML.length > 200) {
+                    summary.classList.add('collapsed');
+                    document.getElementById('show-more-btn').style.display = "block";
+                }
+
+
+
+            })
+            .catch(error => console.error('Error fetching show details:', error));
+
+
+        document.getElementById('show-more-btn').addEventListener('click', function () {
+            const summary = document.getElementById('movie-summary');
+            summary.classList.toggle('collapsed');
+            this.textContent = summary.classList.contains('collapsed') ? 'Daha Fazla Göster' : 'Daha Az Göster';
+        });
+
+    </script>
+
+</body>
+
+</html>

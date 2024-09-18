@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BluTV - Türkiyenin İnternet Televizyonu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/image/blutvlogo.png">
+</head>
+<body>
+    
+    <div class="container">
+        <header>
+            <h1><img src="./assets/image/blutv-icon.svg" alt="head" width="20%"></h1>
+            
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <nav class="navbar" style="background-color: #0f054a;">
+            <div class="container-fluid">
+              <a class="navbar-brand  " style="color: white;" href="#">BluTV</a>
+              <a class="navbar-brand"  style="color: white;" href="#">Üye Girisi</a>
+
+            </div>
+        </nav>
+        <div class="signup-section">
+            <h2>Türkiye'nin yerli lider dijital video platformu</h2>
+            <p>Yıllık üyelikte ayda sadece ₺4.9</p>
+
+            <form>
+                <input class="form-input"  type="text" placeholder="Ad Soyad" required>
+                <input class="form-input" type="email" placeholder="E-posta Adresiniz" required>
+                <input class="form-input" type="password" placeholder="Parola" required>
+                <button type="submit">Hemen Üye Ol</button>
+                
+            </form>
+
+            <label>
+                <p>Üye olunmasıyla <a href="#">Üyelik Sözleşmemizi</a>, <a href="#">Gizlilik Politikamızı</a> kabul etmiş ve 18 yaşından büyük olduğunuzu onaylamış oluyorsunuz.</p>
+                <input type="checkbox"> İletişim izinlerini onaylıyorum.
+            </label>
+
+            <div class="social-buttons">
+                <button class="facebook">Facebook ile Üye Ol</button>
+                <button class="google">Google ile Üye Ol</button>
+                <button class="apple">Apple ile Üye Ol</button>
+            </div>
+            <input type="text" id="search-box" placeholder="Film veya dizi ara..." class="search-input">
+            <button id="search-btn" class="watch-button">Ara</button>
+
+        </div>
+
+       
+    </div>
+        
+        <div class="main-content">
+            
+           
+            <div class="background-image"></div>
+
+            <div class="container">
+                <h2 class="top-ten-title">Top 10 Filmler/Diziler</h2>
+                <div class="slider" id="slider"></div>
+                <button id="load-more-btn" class="load-more" style="display: none;">Daha Fazla Yükle</button>
+            </div>
+            
+            
+           
+
+            
+            <!-- <div class="slider">
+                <img src="./assets/image/The last.jpeg" alt="slider-image"> 
+                <img src="./assets/image/bir ankara polisiyesi.webp" alt="slider-image">
+                <img src="./assets/image/s1f1r b1r.webp" alt="slider-image">
+                <img src="./assets/image/L.C.V.webp" alt="slider-image">
+                <img src="./assets/image/bicak-sirti-2049-335984.jpg" alt="slider-image">
+                <img src="./assets/image/3391-kilometre.jpeg" alt="slider-image">
+                <img src="./assets/image/6647571e866ac31144c3e757.jpeg" alt="slider-image">
+                <img src="./assets/image/649593a2866ac31980473a5b.webp" alt="slider-image">
+                <img src="./assets/image/6650538c866ac314d882c7b2.webp" alt="slider-image">
+            </div> -->
+            <div class="slider" id="slider"></div>
+
+            
+
+        </div>
+
+        <footer>
+            <p>&copy; 2024 BluTV. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
